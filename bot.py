@@ -5,15 +5,6 @@ from datetime import date
 from bs4 import BeautifulSoup
 from vkbottle.bot import Bot, Message
 
-# --- Исправление несовместимости vkbottle и pydantic ---
-try:
-    from vkbottle_types.responses.messages import MessagesSendPeerIdsResponse
-    MessagesSendPeerIdsResponse.model_rebuild(force=True)
-    print("Модель MessagesSendPeerIdsResponse успешно пересобрана.")
-except Exception as e:
-    print(f"Не удалось пересобрать модель: {e}")
-# -----------------------------------------------------
-
 # --- Конфигурация из переменных окружения ---
 TOKEN = os.environ["TOKEN_VK"]
 GROUP_ID = os.environ.get("GROUP_ID", "")
