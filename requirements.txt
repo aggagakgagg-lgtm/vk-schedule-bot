@@ -1,5 +1,5 @@
 vkbottle==4.10.0
-pydantic==2.13.5
+pydantic>=2.13.4
 aiohttp
 beautifulsoup4
 lxml
