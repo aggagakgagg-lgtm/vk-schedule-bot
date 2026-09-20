@@ -29,7 +29,7 @@ async def fetch_schedule_html(group: str):
 
 def parse_schedule(html: str):
     """Разбирает HTML и возвращает список недель с занятиями."""
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "html.parser")
     weeks = []
     for week_div in soup.select("div.week"):
         week_num = week_div.get("data-schedule-week", "?")
