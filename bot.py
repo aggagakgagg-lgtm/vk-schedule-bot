@@ -126,9 +126,15 @@ async def schedule_handler(message: Message):
         await message.answer(f"⚠️ Ошибка: {e}")
 
 
+from vkbottle import LoopWrapper
+from vkbottle.bot import Bot, Message
+
+loop_wrapper = LoopWrapper()
+bot = Bot(token=TOKEN, loop_wrapper=loop_wrapper)
+
+# ... ваш код с обработчиками ...
+
 if __name__ == "__main__":
     print("Бот запущен. Жду сообщения...")
-    try:
-        asyncio.run(bot.run_polling())
-    except KeyboardInterrupt:
-        print("Бот остановлен.")
+    loop_wrapper.add_task(bot.run_polling())
+    loop_wrapper.run()
