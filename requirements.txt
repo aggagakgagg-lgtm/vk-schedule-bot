@@ -2,4 +2,3 @@ vkbottle==4.8.0
 pydantic==2.12.5
 aiohttp
 beautifulsoup4
-lxml
