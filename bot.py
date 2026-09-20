@@ -12,6 +12,13 @@ GROUP_ID = os.environ.get("GROUP_ID", "")
 # --- Инициализация бота ---
 bot = Bot(token=TOKEN)
 
+import logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(message)s")
+logger = logging.getLogger("vk_bot")
+
+@bot.on.message()
+async def debug_logger(message: Message):
+    logger.info(f"Получено сообщение от {message.from_id}: {message.text!r}")
 
 async def fetch_schedule_html(group: str):
     """Скачивает HTML-страницу расписания."""
