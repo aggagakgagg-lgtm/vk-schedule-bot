@@ -10,4 +10,3 @@ build:
 run:
   command: python bot.py
   persistenceMount: /data
-  containerPort: 80
